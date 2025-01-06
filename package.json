@@ -1,0 +1,24 @@
+{
+  "name": "salonx_api_gateway",
+  "version": "1.0.0",
+  "description": "This application is a Geteway for salonx application",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "http-proxy-middleware": "^3.0.3",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.9",
+    "winston": "^3.17.0"
+  }
+}
