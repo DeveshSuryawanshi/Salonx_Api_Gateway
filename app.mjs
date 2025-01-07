@@ -13,7 +13,7 @@ const app = express();
 
 // Middleware setup
 app.use(crossOriginControl); // Enable Cross-Origin Resource Sharing
-app.use(limiter); // ---||---
+app.use(limiter); // Request limiter
 app.use(requestLogger); // Log HTTP requests
 app.use(helmet()); // Security Middleware
 app.use(morgan('combined')); // Log HTTP requests
