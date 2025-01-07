@@ -7,10 +7,12 @@ import Logger from "./src/config/logger.mjs";
 import router from "./src/routes/index.mjs";
 import limiter from "./src/utils/limiter.mjs";
 import requestLogger from './src/middlewares/requestLogger.middleware.mjs';
+import crossOriginControl from './src/middlewares/crossOriginControl.middleware.mjs';
 
 const app = express();
 
 // Middleware setup
+app.use(crossOriginControl); // Enable Cross-Origin Resource Sharing
 app.use(limiter); // ---||---
 app.use(requestLogger); // Log HTTP requests
 app.use(helmet()); // Security Middleware
