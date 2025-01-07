@@ -1,4 +1,4 @@
-import { Logger } from '../config/logger.mjs';
+import Logger from '../config/logger.mjs';
 import jwt from "jsonwebtoken";
 
 const validateJWT = (req, res, next) => {

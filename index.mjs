@@ -1,7 +1,7 @@
 import http from 'http';
 import app from './app.mjs';  // Import the app defined in app.mjs
 import config from './src/config/config.mjs'
-import { Logger } from './src/config/logger.mjs';
+import Logger from './src/config/logger.mjs';
 
 const PORT = config.app.port || 3000;
 const server = http.createServer(app);

@@ -68,20 +68,6 @@ const Logger = createLogger({
     ],
 });
 
-// Middleware for logging HTTP requests
-const requestLoggerMiddleware = (req, res, next) => {
-  const { method, url } = req;
-  const startTime = new Date();
-
-  res.on('finish', () => {
-    const { statusCode } = res;
-    const responseTime = new Date() - startTime;
-    Logger.info(`[${method}] ${url} ${statusCode} - ${responseTime}ms`);
-  });
-
-  next();
-};
-
 // Usage
 // Logger.fatal('This is a fatal log'); // Highest priority
 // Logger.error('This is an error log');
@@ -90,4 +76,4 @@ const requestLoggerMiddleware = (req, res, next) => {
 // Logger.http('This is an HTTP log');
 // Logger.debug('This is a debug log'); // Lowest priority
 
-export { Logger, requestLoggerMiddleware };
+export default Logger;

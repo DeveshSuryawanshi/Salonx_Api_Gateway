@@ -1,25 +1,22 @@
-import dotenv from "dotenv";
 import express from 'express';
 import helmet from 'helmet';
-import rateLimit from 'express-rate-limit';
-import { Logger } from "./src/config/logger.mjs";
-import router from "./src/routes/index.mjs";
-dotenv.config;
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
 
-// Initialize Express app
+import Logger from "./src/config/logger.mjs";
+import router from "./src/routes/index.mjs";
+import limiter from "./src/utils/limiter.mjs";
+import requestLogger from './src/middlewares/requestLogger.middleware.mjs';
+
 const app = express();
 
-// Security Middleware
-app.use(helmet());
-
-// Rate Limiting
-const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // Limit each IP to 100 requests per window
-    message: 'Too many requests, please try again later.',
-});
-
-app.use(limiter);
+// Middleware setup
+app.use(limiter); // ---||---
+app.use(requestLogger); // Log HTTP requests
+app.use(helmet()); // Security Middleware
+app.use(morgan('combined')); // Log HTTP requests
+app.use(bodyParser.json()); // Parse JSON requests
+app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded requests
 
 // Gateway Routes
 app.use('/', router);

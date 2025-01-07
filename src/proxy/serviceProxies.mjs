@@ -1,5 +1,5 @@
 import { createProxyMiddleware } from 'http-proxy-middleware';
-import { Logger } from '../config/logger.mjs';
+import Logger from '../config/logger.mjs';
 
 const createProxies = (router, services) => {
     Object.entries(services).forEach(([serviceName, serviceUrl]) => {
