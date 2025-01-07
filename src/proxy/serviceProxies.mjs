@@ -25,4 +25,3 @@ const createProxies = (router, services) => {
 };
 
 export default createProxies;
-// module.exports = { createProxies };

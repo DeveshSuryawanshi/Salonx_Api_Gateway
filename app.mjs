@@ -22,7 +22,7 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // Gateway Routes
-app.use('/api', router);
+app.use('/', router);
 
 // Fallback for unmatched routes
 app.use((req, res) => {

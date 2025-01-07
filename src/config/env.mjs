@@ -20,6 +20,9 @@ const ENV = {
     NOTIFICATION_SERVICE_URL: process.env.NOTIFICATION_SERVICE_URL || 'http://localhost:3006',
     REVIEW_SERVICE_URL: process.env.REVIEW_SERVICE_URL || 'http://localhost:3007',
     ANALYTICS_SERVICE_URL: process.env.ANALYTICS_SERVICE_URL || 'http://localhost:3008',
+    //Auth route
+    LOGIN_ROUTE: process.env.LOGIN_ROUTE,
+    REGISTER_ROUTE: process.env.REGISTER_ROUTE,
 };
 
 export default ENV;

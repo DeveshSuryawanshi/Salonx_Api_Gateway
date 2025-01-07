@@ -28,6 +28,10 @@ const config = {
     review: ENV.REVIEW_SERVICE_URL,
     analytics: ENV.ANALYTICS_SERVICE_URL,
   },
+  open_route: {
+    login: ENV.LOGIN_ROUTE,
+    register: ENV.REGISTER_ROUTE
+  }
 };
 
 export default config;

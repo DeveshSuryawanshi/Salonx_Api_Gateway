@@ -18,7 +18,13 @@ const services = {
 };
 
 // Validate JWT for all routes
-router.use(validateJWT);
+router.use((req, res, next) => {
+    const openRoutes = [config.open_route.login, config.open_route.register];
+    if (openRoutes.includes(req.path)) {
+        return next(); // Skip JWT validation for public routes
+    }
+    validateJWT(req, res, next);
+});
 
 // Create proxies for all services
 createProxies(router, services);
