@@ -1,7 +1,7 @@
 import express from 'express';
 import createProxies from '../proxy/serviceProxies.mjs';
-import validateJWT from '../utils/jwtValidation.mjs';
 import config from "../config/config.mjs";
+import Auth from '../middlewares/auth.middleware.mjs';
 
 const router = express.Router();
 
@@ -23,7 +23,7 @@ router.use((req, res, next) => {
     if (openRoutes.includes(req.path)) {
         return next(); // Skip JWT validation for public routes
     }
-    validateJWT(req, res, next);
+    Auth(req, res, next);
 });
 
 // Create proxies for all services
