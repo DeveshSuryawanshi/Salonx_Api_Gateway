@@ -1,7 +1,7 @@
 import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import bodyParser from 'body-parser';
+// import bodyParser from 'body-parser';
 
 import Logger from "./src/config/logger.mjs";
 import router from "./src/routes/index.mjs";
@@ -17,7 +17,8 @@ app.use(limiter); // Request limiter
 app.use(requestLogger); // Log HTTP requests
 app.use(helmet()); // Security Middleware
 app.use(morgan('combined')); // Log HTTP requests
-app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded requests
+// app.use(bodyParser.json()); // Parse JSON requests
+// app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded requests
 
 // Gateway Routes
 app.use('/', router);
